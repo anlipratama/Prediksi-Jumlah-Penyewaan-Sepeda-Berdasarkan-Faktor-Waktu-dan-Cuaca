@@ -126,11 +126,10 @@ Keterangan:
 ### 1. Clone repository
 
 ```bash
-git clone https://github.com/USERNAME/bike-rental-prediction.git
+git clone https://github.com/anlipratama/bike-rental-prediction.git
 cd bike-rental-prediction
 ```
 
-Ganti `USERNAME` dengan nama akun GitHub kamu.
 
 ### 2. Instal dependensi
 
