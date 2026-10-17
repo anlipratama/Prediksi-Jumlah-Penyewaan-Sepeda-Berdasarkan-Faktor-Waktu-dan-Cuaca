@@ -1,55 +1,31 @@
-# Tugas Machine Learning
-# Bike Rental Prediction 🚲
+# 🚲 Bike Rental Prediction
 
-**Prediksi Jumlah Penyewaan Sepeda Menggunakan Machine Learning**
+Project Machine Learning untuk memprediksi jumlah penyewaan sepeda berdasarkan waktu, kondisi cuaca, dan karakteristik lingkungan menggunakan algoritma regresi. Project ini dibuat menggunakan Python dan Streamlit sehingga model prediksi dapat digunakan melalui aplikasi web sederhana.
 
-## 📌 Deskripsi Proyek
+## 📌 Tentang Project
 
-Proyek ini bertujuan untuk memprediksi jumlah penyewaan sepeda berdasarkan faktor waktu dan kondisi cuaca menggunakan Machine Learning.
+Penyewaan sepeda dapat dipengaruhi oleh beberapa faktor, seperti jam, musim, hari kerja, dan kondisi cuaca. Melalui project ini, dilakukan analisis data dan penerapan algoritma Machine Learning untuk memperkirakan jumlah penyewaan sepeda berdasarkan data historis.
 
-Dataset yang digunakan adalah **Bike Sharing Dataset** dari UCI Machine Learning Repository. Data berisi informasi penyewaan sepeda per jam beserta faktor-faktor yang berkaitan dengan aktivitas penyewaan.
-
-Proyek ini dibuat sebagai sarana pembelajaran untuk memahami tahapan pengolahan data, analisis eksploratif, pemodelan regresi, evaluasi model, dan pengembangan aplikasi web sederhana.
+Dua algoritma yang dibandingkan dalam project ini adalah **Linear Regression** dan **Random Forest Regressor**.
 
 ## 🎯 Tujuan
 
-- Memahami proses pengolahan data menggunakan Python.
-- Melakukan Exploratory Data Analysis (EDA) dan eksplorasi lanjutan.
-- Membangun model untuk memprediksi jumlah penyewaan sepeda.
+- Memahami proses pengolahan data untuk Machine Learning.
+- Melakukan Exploratory Data Analysis (EDA) untuk melihat pola penyewaan sepeda.
+- Membangun model regresi untuk memprediksi jumlah penyewaan sepeda.
 - Membandingkan performa dua algoritma regresi.
-- Mengevaluasi model menggunakan MAE, RMSE, dan R².
-- Mengembangkan model menjadi aplikasi web menggunakan Streamlit.
+- Membuat aplikasi prediksi sederhana menggunakan Streamlit.
 
 ## 📊 Dataset
 
-**Nama:** Bike Sharing Dataset  
-**Sumber:** [UCI Machine Learning Repository](https://archive.ics.uci.edu/dataset/275/bike+sharing+dataset)  
-**File yang digunakan:** `hour.csv`  
-**Jumlah data:** 17.379 baris pada versi file yang umum digunakan.
+Dataset yang digunakan adalah **Bike Sharing Dataset** dari UCI Machine Learning Repository.
 
-Dataset berisi informasi penyewaan sepeda berdasarkan waktu, musim, dan kondisi cuaca.
+- Sumber: [UCI Bike Sharing Dataset](https://archive.ics.uci.edu/dataset/275/bike+sharing+dataset)
+- File yang digunakan: `hour.csv`
+- Jumlah data: 17.379 baris pada versi dataset yang umum digunakan.
+- Target prediksi: `cnt`, yaitu total jumlah penyewaan sepeda per jam.
 
-### Fitur yang digunakan
-
-| Kolom | Keterangan |
-|---|---|
-| `season` | Musim |
-| `yr` | Tahun pengamatan |
-| `mnth` | Bulan |
-| `hr` | Jam penyewaan |
-| `holiday` | Status hari libur |
-| `weekday` | Hari dalam minggu |
-| `workingday` | Status hari kerja |
-| `weathersit` | Kondisi cuaca |
-| `temp` | Suhu yang dinormalisasi |
-| `atemp` | Suhu terasa yang dinormalisasi |
-| `hum` | Kelembapan yang dinormalisasi |
-| `windspeed` | Kecepatan angin yang dinormalisasi |
-| `cnt` | Jumlah total penyewaan sepeda |
-
-**Target prediksi:** `cnt`
-
-Kolom `casual` dan `registered` tidak digunakan sebagai fitur karena keduanya merupakan komponen pembentuk jumlah total penyewaan.
+Dataset ini mencakup informasi waktu, musim, hari kerja, kondisi cuaca, dan jumlah penyewaan sepeda.
 
 ## 🛠️ Teknologi yang Digunakan
 
@@ -60,137 +36,104 @@ Kolom `casual` dan `registered` tidak digunakan sebagai fitur karena keduanya me
 - Scikit-learn
 - Joblib
 - Streamlit
-- Google Colab / Visual Studio Code
+- Jupyter Notebook / Google Colab
+- Visual Studio Code
 
-## 🔄 Tahapan Pengerjaan
+## ⚙️ Tahapan Pengerjaan
 
-### 1. Data Loading
-Mengunduh dan membaca dataset menggunakan Pandas.
+1. **Data Loading** — memuat dataset ke dalam DataFrame menggunakan Pandas.
+2. **Data Cleaning** — memeriksa tipe data, nilai kosong, dan data duplikat.
+3. **EDA (Exploratory Data Analysis)** — memahami distribusi jumlah penyewaan dan pola berdasarkan waktu.
+4. **ExDA (Explorasi Data Lanjutan)** — melihat hubungan antara jumlah penyewaan dengan faktor cuaca dan variabel lainnya.
+5. **Feature Selection** — menentukan fitur yang digunakan untuk memprediksi `cnt`.
+6. **Data Splitting** — membagi data menjadi data latih dan data uji.
+7. **Model Training** — melatih Linear Regression dan Random Forest Regressor.
+8. **Model Evaluation** — membandingkan model menggunakan MAE, RMSE, dan R².
+9. **Model Saving** — menyimpan model terpilih menggunakan Joblib.
+10. **Deployment Sederhana** — membuat antarmuka prediksi menggunakan Streamlit.
 
-### 2. Data Cleaning
-Memeriksa tipe data, nilai kosong, dan data duplikat.
+## 📈 Hasil Evaluasi Model
 
-### 3. Exploratory Data Analysis (EDA)
-Menganalisis statistik dasar, distribusi penyewaan, dan pola penyewaan berdasarkan jam.
+Berikut hasil evaluasi kedua algoritma pada data pengujian:
 
-### 4. Exploratory Data Analysis Lanjutan (ExDA)
-Mengeksplorasi hubungan antara kondisi cuaca, fitur numerik, dan jumlah penyewaan.
+| Algoritma | MAE | RMSE | R² |
+|---|---:|---:|---:|
+| Linear Regression | 138.3424 | 183.1024 | 0.3090 |
+| Random Forest Regressor | 45.0257 | 70.2705 | 0.8982 |
 
-### 5. Data Preprocessing
-Memilih fitur yang digunakan sebagai input dan menetapkan `cnt` sebagai target.
+### 🔍 Analisis Hasil
 
-### 6. Data Splitting
-Membagi data menjadi 80% data latih dan 20% data uji berdasarkan urutan waktu.
+**Random Forest Regressor memberikan hasil terbaik** berdasarkan ketiga metrik evaluasi yang digunakan.
 
-### 7. Modeling
-Membangun dan membandingkan dua algoritma regresi:
+- **MAE sebesar 45,03:** rata-rata selisih absolut antara prediksi dan nilai aktual sekitar 45 penyewaan sepeda.
+- **RMSE sebesar 70,27:** mengukur besar kesalahan prediksi dengan memberikan penalti lebih besar pada kesalahan yang tinggi.
+- **R² sebesar 0,8982:** model menjelaskan sekitar 89,82% variasi target pada data pengujian.
 
-- **Linear Regression:** mempelajari hubungan linear antara fitur dan target.
-- **Random Forest Regressor:** menggabungkan banyak pohon keputusan untuk menghasilkan prediksi.
+Sebagai perbandingan, Linear Regression memperoleh R² sebesar 0,3090. Pada pengujian ini, Random Forest Regressor mampu menangkap pola data dengan lebih baik dibandingkan Linear Regression.
 
-### 8. Evaluation
-Menggunakan tiga metrik evaluasi:
+Hasil tersebut berlaku pada pembagian data dan konfigurasi model yang digunakan dalam project ini. Performa pada data lain dapat berbeda.
 
-- **MAE (Mean Absolute Error):** mengukur rata-rata kesalahan absolut prediksi.
-- **RMSE (Root Mean Squared Error):** mengukur kesalahan dengan penalti lebih besar untuk kesalahan besar.
-- **R² Score:** mengukur kemampuan model menjelaskan variasi target pada data uji.
+## 🖥️ Menjalankan Aplikasi
 
-Model terbaik dipilih berdasarkan hasil evaluasi, dengan MAE sebagai kriteria utama pada implementasi awal.
-
-### 9. Development
-Mengembangkan model yang telah dilatih menjadi aplikasi web sederhana menggunakan Streamlit.
-
-Pengguna dapat memasukkan informasi waktu dan cuaca untuk mendapatkan perkiraan jumlah penyewaan sepeda.
-
-## 📁 Struktur Proyek
-
-```text
-bike-rental-prediction/
-├── app.py
-├── model_bike.pkl
-├── fitur_bike.pkl
-├── README.md
-└── requirements.txt
-```
-
-Keterangan:
-
-- `app.py`: kode aplikasi Streamlit.
-- `model_bike.pkl`: model Machine Learning yang telah dilatih.
-- `fitur_bike.pkl`: daftar fitur yang digunakan model.
-- `README.md`: dokumentasi proyek.
-- `requirements.txt`: daftar pustaka yang diperlukan.
-
-## ⚙️ Instalasi dan Menjalankan Aplikasi
-
-### 1. Clone repository
+### 1. Clone Repository
 
 ```bash
 git clone https://github.com/anlipratama/bike-rental-prediction.git
 cd bike-rental-prediction
 ```
 
+### 2. Instal Library
 
-### 2. Instal dependensi
+Pastikan Python sudah terinstal, lalu jalankan:
 
 ```bash
 pip install -r requirements.txt
 ```
 
-Jika file `requirements.txt` belum tersedia, gunakan:
-
-```bash
-pip install streamlit pandas numpy matplotlib scikit-learn joblib
-```
-
-### 3. Jalankan aplikasi
-
-Pastikan `app.py`, `model_bike.pkl`, dan `fitur_bike.pkl` berada di folder yang sama.
+### 3. Jalankan Streamlit
 
 ```bash
 streamlit run app.py
 ```
 
-Aplikasi akan terbuka melalui browser dan siap digunakan untuk mencoba prediksi.
+Setelah berjalan, buka alamat lokal yang ditampilkan di terminal, biasanya `http://localhost:8501`.
 
-## 📈 Hasil dan Evaluasi
+## 📁 Struktur Folder
 
-Evaluasi model dilakukan menggunakan MAE, RMSE, dan R² untuk membandingkan hasil prediksi dengan data aktual.
+```text
+bike-rental-prediction/
+├── app.py
+├── model_bike.pkl
+├── fitur_bike.pkl
+├── requirements.txt
+├── README.md
+└── .gitignore
+```
 
-Hasil numerik evaluasi akan dicantumkan setelah proses pemodelan dijalankan.
+Keterangan:
 
-| Algoritma | MAE | RMSE | R² |
-|---|---:|---:|---:|
-| Linear Regression | Isi sesuai hasil | Isi sesuai hasil | Isi sesuai hasil |
-| Random Forest Regressor | Isi sesuai hasil | Isi sesuai hasil | Isi sesuai hasil |
+- `app.py`: kode aplikasi Streamlit.
+- `model_bike.pkl`: model Machine Learning yang telah disimpan.
+- `fitur_bike.pkl`: daftar fitur yang digunakan model.
+- `requirements.txt`: daftar library Python yang diperlukan.
+- `README.md`: dokumentasi project.
+- `.gitignore`: daftar file atau folder yang tidak perlu diunggah ke Git.
 
-Model terbaik ditentukan berdasarkan hasil pengujian dan perbandingan metrik evaluasi.
+## 📝 Kesimpulan
 
-## 🚀 Pengembangan Selanjutnya
+Berdasarkan hasil pengujian, Random Forest Regressor memiliki performa lebih baik daripada Linear Regression dalam memprediksi jumlah penyewaan sepeda pada dataset yang digunakan. Model Random Forest memperoleh MAE sebesar 45,0257, RMSE sebesar 70,2705, dan R² sebesar 0,8982.
 
-Beberapa pengembangan yang dapat dilakukan:
+Project ini menunjukkan tahapan penerapan Machine Learning, mulai dari pemuatan dan eksplorasi data hingga pelatihan, evaluasi, penyimpanan model, dan pembuatan aplikasi prediksi berbasis Streamlit.
 
-- Menambahkan visualisasi hasil prediksi ke dalam aplikasi.
-- Memperbaiki tampilan input agar lebih mudah dipahami.
-- Melakukan optimasi hyperparameter.
-- Memperbaiki encoding fitur kategori.
-- Membandingkan hasil model dengan metode regresi lainnya.
-- Melakukan deployment aplikasi agar dapat diakses secara online.
+## 📚 Referensi Dataset
 
-## ⚠️ Catatan
-
-Hasil prediksi merupakan perkiraan berdasarkan pola pada data historis, bukan jumlah penyewaan aktual yang dijamin akan terjadi.
-
-Proyek ini dibuat untuk tujuan pembelajaran dan pengembangan portofolio Machine Learning.
-
-## 📚 Referensi
-
-Fanaee-T, H. (2013). *Bike Sharing [Dataset].* UCI Machine Learning Repository.
+Fanaee-T, H. (2013). *Bike Sharing Dataset*. UCI Machine Learning Repository.
 
 https://doi.org/10.24432/C5W894
 
-Lisensi dataset: Creative Commons Attribution 4.0 International (CC BY 4.0).
+Dataset digunakan sesuai lisensi CC BY 4.0 dengan mencantumkan atribusi sumber.
 
 ## 👨‍💻 Author
 
-Dibuat sebagai proyek pembelajaran Machine Learning menggunakan Python.
+Dikembangkan sebagai project pembelajaran Machine Learning menggunakan Python.
+
