@@ -127,7 +127,7 @@ Project ini menunjukkan tahapan penerapan Machine Learning, mulai dari pemuatan 
 
 Fanaee-T, H. (2013). *Bike Sharing Dataset*. UCI Machine Learning Repository.
 
-https://doi.org/10.24432/C5W894
+[UCI Bike Sharing Dataset](https://archive.ics.uci.edu/dataset/275/bike+sharing+dataset)
 
 Dataset digunakan sesuai lisensi CC BY 4.0 dengan mencantumkan atribusi sumber.
 
