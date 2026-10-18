@@ -106,8 +106,7 @@ bike-rental-prediction/
 ├── model_bike.pkl
 ├── fitur_bike.pkl
 ├── requirements.txt
-├── README.md
-└── .gitignore
+└── README.md
 ```
 
 Keterangan:
@@ -117,7 +116,6 @@ Keterangan:
 - `fitur_bike.pkl`: daftar fitur yang digunakan model.
 - `requirements.txt`: daftar library Python yang diperlukan.
 - `README.md`: dokumentasi project.
-- `.gitignore`: daftar file atau folder yang tidak perlu diunggah ke Git.
 
 ## 📝 Kesimpulan
 
@@ -136,4 +134,3 @@ Dataset digunakan sesuai lisensi CC BY 4.0 dengan mencantumkan atribusi sumber.
 ## 👨‍💻 Author
 
 Dikembangkan sebagai project pembelajaran Machine Learning menggunakan Python.
-
